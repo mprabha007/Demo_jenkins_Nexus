@@ -21,7 +21,7 @@ pipeline {
                     [
                         artifactId: 'simple-app', 
                         classifier: '', 
-                        file: "target/simple-app-${mavenPom}.war", 
+                        file: "target/simple-app-${mavenPom.version}.war", 
                         type: 'war'
                     ]
                 ], 
@@ -31,7 +31,7 @@ pipeline {
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'Demo_Jenkins_nexus', 
-                version: "${mavenPom}"
+                version: "${mavenPom.version}"
                 }
             }
         }
