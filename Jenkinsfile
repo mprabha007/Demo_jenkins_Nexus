@@ -33,7 +33,8 @@ pipeline {
                         repository: 'Demo_Jenkins_nexus', 
                         version: "${mavenPom}"
                     }
-                }
-        }}
+                 }     
+             }
+        }
     }
 }
