@@ -26,9 +26,9 @@ pipeline {
                 credentialsId: 'Nexus', 
                 groupId: 'in.javahome', 
                 nexusUrl: '172.31.5.83', 
-                nexusVersion: 'nexus3', 
+                nexusVersion: 'nexus2', 
                 protocol: 'http', 
-                repository: 'http://13.233.151.220:8081/repository/Demo_Jenkins_nexus', 
+                repository: 'Demo_Jenkins_nexus', 
                 version: '1.0.0'
             }
         }
