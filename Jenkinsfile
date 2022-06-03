@@ -13,24 +13,27 @@ pipeline {
             }
         }
         stage('Nexus_Push'){
-            steps{
-              nexusArtifactUploader artifacts: 
-                [
-                    [
-                        artifactId: 'simple-app', 
-                        classifier: '', 
-                        file: 'target/simple-app-1.0.0.war', 
-                        type: 'war'
-                    ]
-                ], 
-                credentialsId: 'Nexus', 
-                groupId: 'in.javahome', 
-                nexusUrl: '172.31.5.83:8081', 
-                nexusVersion: 'nexus3', 
-                protocol: 'http', 
-                repository: 'Demo_Jenkins_nexus', 
-                version: '1.0.0'
-            }
+            script{
+                steps{
+                    def mavenPom = readMavenPom file 'pom.xml'
+                    nexusArtifactUploader artifacts: 
+                        [
+                            [
+                                 artifactId: 'simple-app', 
+                                 classifier: '', 
+                                 file: "target/simple-app-${mavenPom}.war", 
+                                 type: 'war'
+                            ]
+                        ], 
+                        credentialsId: 'Nexus', 
+                        groupId: 'in.javahome', 
+                        nexusUrl: '172.31.5.83', 
+                        nexusVersion: 'nexus3', 
+                        protocol: 'http', 
+                        repository: 'Demo_Jenkins_nexus', 
+                        version: "${mavenPom}"
+                    }
+                }
         }
     }
 }
