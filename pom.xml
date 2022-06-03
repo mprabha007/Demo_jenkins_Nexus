@@ -7,14 +7,6 @@
 	<version>3.0.0-SNAPSHOT</version>
 	<name>simple-app</name>
 	<url>http://maven.apache.org</url>
-	<plugins>
-   		<plugin>
-        		<configuration>
-            			<source>1.8</source>
-            			<target>1.8</target>
-        		</configuration>
-    		</plugin>
-   	</plugins>
 	
 	<dependencies>
 
@@ -28,4 +20,3 @@
 
 	</dependencies>
 	
-</project>
